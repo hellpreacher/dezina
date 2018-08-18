@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ProductProvider } from '../../providers/product/product';
 
 @Component({
     selector: 'page-about',
     templateUrl: 'about.html'
 })
 export class AboutPage {
+    bestSellerProducts
+    constructor(public navCtrl: NavController, private _products: ProductProvider) { }
 
-    constructor(public navCtrl: NavController) {}
+    ionViewDidLoad() {
+        this._products.getProducts().subscribe(
+            res => {
+                this.bestSellerProducts = res.filter(x => x.bestSeller == true)
+            }
+        )
+    }
 
-    // Lifecycle
-    // ionViewCanEnter() { alert('Can Enter') }
-    // ionViewDidLoad() { alert('Did Load') }
-    // ionViewWillEnter() { alert('Will Enter') }
-    // ionViewDidEnter() { alert('Did Enter') }
-    // ionViewWillLeave() { alert('Will Leave') }
-    // ionViewDidLeave() { alert('Did Leave') }
 }

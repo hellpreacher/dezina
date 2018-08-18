@@ -19,6 +19,6 @@ export class HomePage {
     }
 
     goToProductDetailPage(product) {
-        this.navCtrl.push(ProductDetailPage, { productDetail: product })
+        this.navCtrl.push(ProductDetailPage, { productDetails: product })
     }
 }

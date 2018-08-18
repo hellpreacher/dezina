@@ -7,5 +7,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 
 export class ProductDetailPage {
-    constructor(public navCtrl: NavController, public navParams: NavParams) { }
+    productDetails
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+        this.productDetails = this.navParams.get('productDetails')
+    }
+
+
 }
